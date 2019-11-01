@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InTouch.Data", "InTouch.Data\InTouch.Data\InTouch.Data.csproj", "{71DE4D7A-0A74-4EC4-B9D7-A77464EB55DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.Data", "InTouch.Data\InTouch.Data\InTouch.Data.csproj", "{71DE4D7A-0A74-4EC4-B9D7-A77464EB55DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InTouch.Data.Tests", "InTouch.Data\InTouch.Data.Tests\InTouch.Data.Tests.csproj", "{AEC36288-9448-4982-BDD5-86D658D765B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.Data.Tests", "InTouch.Data\InTouch.Data.Tests\InTouch.Data.Tests.csproj", "{AEC36288-9448-4982-BDD5-86D658D765B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InTouch.Database", "InTouch.Database\InTouch.Database.csproj", "{7645A1F7-3ADA-43C1-A5DC-E84B8AD08051}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.Database", "InTouch.Database\InTouch.Database.csproj", "{7645A1F7-3ADA-43C1-A5DC-E84B8AD08051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InTouch.Business", "InTouch.Business\InTouch.Business\InTouch.Business.csproj", "{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InTouch.Business.Tests", "InTouch.Business\InTouch.Business.Tests\InTouch.Business.Tests.csproj", "{B45F147D-ED22-424C-9B48-36A4F4F23CD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InTouch.WebApi", "InTouch.WebApi\InTouch.WebApi\InTouch.WebApi.csproj", "{46113F3C-D5FF-442D-A220-CBBF297BAE00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{7645A1F7-3ADA-43C1-A5DC-E84B8AD08051}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7645A1F7-3ADA-43C1-A5DC-E84B8AD08051}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7645A1F7-3ADA-43C1-A5DC-E84B8AD08051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46113F3C-D5FF-442D-A220-CBBF297BAE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46113F3C-D5FF-442D-A220-CBBF297BAE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46113F3C-D5FF-442D-A220-CBBF297BAE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46113F3C-D5FF-442D-A220-CBBF297BAE00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
