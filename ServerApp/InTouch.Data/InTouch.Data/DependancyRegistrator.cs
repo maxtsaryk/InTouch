@@ -9,7 +9,7 @@ namespace InTouch.Data
         public static IServiceCollection AddDataAccessComponents(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<InTouchDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("InTouch.Data")));
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
             return services;
         }

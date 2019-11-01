@@ -5,11 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InTouch.Data\InTouch.Data\InTouch.Data.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\InTouch\" />
+    <ProjectReference Include="..\InTouch.Data\InTouch.Data\InTouch.Data.csproj" />
   </ItemGroup>
 
 </Project>
