@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace InTouch.Data.Migrations
+namespace InTouch.Data.Migrations.InTouchMigrations
 {
     public partial class Initial : Migration
     {

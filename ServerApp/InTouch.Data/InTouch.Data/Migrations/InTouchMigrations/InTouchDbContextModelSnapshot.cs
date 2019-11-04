@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace InTouch.Data.Migrations
+namespace InTouch.Data.Migrations.InTouchMigrations
 {
     [DbContext(typeof(InTouchDbContext))]
     partial class InTouchDbContextModelSnapshot : ModelSnapshot

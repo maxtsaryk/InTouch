@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace InTouch.Data.Migrations
+namespace InTouch.Data.Migrations.InTouchMigrations
 {
     [DbContext(typeof(InTouchDbContext))]
-    [Migration("20191101154434_Initial")]
+    [Migration("20191104131002_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
