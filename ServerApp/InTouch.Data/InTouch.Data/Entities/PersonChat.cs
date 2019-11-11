@@ -2,13 +2,13 @@
 
 namespace InTouch.Data.Entities
 {
-    public class PersonConversation : BaseEntity
+    public class PersonChat : BaseEntity
     {
         public bool IsTyping { get; set; }
         public int PersonId { get; set; }
-        public int ConversationId { get; set; }
+        public int ChatId { get; set; }
 
         public Person Person { get; set; }
-        public Conversation Conversation { get; set; }
+        public Chat Chat { get; set; }
     }
 }
