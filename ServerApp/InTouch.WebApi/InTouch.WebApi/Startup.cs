@@ -1,4 +1,4 @@
-using InTouch.Business;
+using InTouch.Business.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace InTouch.Data
+namespace InTouch.Data.Utils
 {
-    public static class DependancyRegistrator
+    public static class DependancyRegister
     {
         public static IServiceCollection AddDataAccessComponents(this IServiceCollection services, IConfiguration configuration)
         {

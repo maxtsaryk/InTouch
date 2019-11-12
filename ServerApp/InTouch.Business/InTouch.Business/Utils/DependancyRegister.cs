@@ -1,10 +1,10 @@
-﻿using InTouch.Data;
+﻿using InTouch.Data.Utils;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace InTouch.Business
+namespace InTouch.Business.Utils
 {
-    public static class DependancyRegistrator
+    public static class DependancyRegister
     {
         public static IServiceCollection AddBusinessComponents(this IServiceCollection services, IConfiguration configuration)
         {
