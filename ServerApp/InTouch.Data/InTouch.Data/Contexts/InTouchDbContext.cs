@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InTouch.Data.Contexts
 {
-    public class InTouchDbContext: DbContext
+    public class InTouchDbContext : DbContext
     {
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Message> Messages { get; set; }
