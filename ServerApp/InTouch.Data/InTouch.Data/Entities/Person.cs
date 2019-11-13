@@ -4,7 +4,7 @@ using InTouch.Data.Enums;
 
 namespace InTouch.Data.Entities
 {
-    public class Person : BaseEntity
+    public class Person : Entity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

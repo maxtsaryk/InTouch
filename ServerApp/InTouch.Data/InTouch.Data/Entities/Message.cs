@@ -3,7 +3,7 @@ using InTouch.Data.Enums;
 
 namespace InTouch.Data.Entities
 {
-    public class Message : BaseEntity
+    public class Message : Entity
     {
         public int SenderId { get; set; }
         public int ChatId { get; set; }

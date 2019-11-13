@@ -20,12 +20,12 @@ namespace InTouch.Data.Generic
 
         protected DbContext DbContext { get; }
 
-        protected void RegisterRepository<TEntity>(IRepository<TEntity> repository) where TEntity : BaseEntity
+        protected void RegisterRepository<TEntity>(IRepository<TEntity> repository) where TEntity : IEntity
         {
             this._repositories[typeof(TEntity)] = (object)repository;
         }
 
-        protected virtual IRepository<TEntity> GetRepository<TEntity>() where TEntity : BaseEntity
+        protected virtual IRepository<TEntity> GetRepository<TEntity>() where TEntity : IEntity
         {
             return (IRepository<TEntity>)this._repositories[typeof(TEntity)];
         }

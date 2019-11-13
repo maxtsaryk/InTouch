@@ -2,7 +2,7 @@
 
 namespace InTouch.Data.Entities
 {
-    public class PersonChat : BaseEntity
+    public class PersonChat : Entity
     {
         public bool IsTyping { get; set; }
         public int PersonId { get; set; }

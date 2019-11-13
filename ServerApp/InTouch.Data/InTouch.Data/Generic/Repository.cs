@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InTouch.Data.Generic
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
         private readonly DbContext _dbContext;
         private readonly DbSet<TEntity> _dbSet;

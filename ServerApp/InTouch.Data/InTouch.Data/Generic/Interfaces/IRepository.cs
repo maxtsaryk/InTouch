@@ -6,7 +6,7 @@ using InTouch.Data.BaseEntities;
 
 namespace InTouch.Data.Generic.Interfaces
 {
-    public interface IRepository<TEntity> where TEntity : BaseEntity
+    public interface IRepository<TEntity> where TEntity : IEntity
     {
         Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate);
         Task<IList<TEntity>> GetList(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, object>> orderBy);
