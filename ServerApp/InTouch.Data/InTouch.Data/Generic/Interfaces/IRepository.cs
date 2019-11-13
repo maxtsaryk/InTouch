@@ -8,8 +8,8 @@ namespace InTouch.Data.Generic.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : IEntity
     {
-        Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate);
-        Task<IList<TEntity>> GetList(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, object>> orderBy);
+        Task<TEntity> Get(Expression<Func<TEntity, bool>> filter);
+        Task<IList<TEntity>> GetList(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>> orderBy);
         Task<TEntity> Insert(TEntity entity);
         TEntity Update(TEntity entity);
         void Delete(TEntity entity);

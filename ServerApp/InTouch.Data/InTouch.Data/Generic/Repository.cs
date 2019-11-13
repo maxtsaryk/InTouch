@@ -20,14 +20,14 @@ namespace InTouch.Data.Generic
             _dbSet = dbContext.Set<TEntity>();
         }
 
-        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
+        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> filter)
         {
-            return await Query(predicate).FirstOrDefaultAsync();
+            return await Query(filter).FirstOrDefaultAsync();
         }
 
-        public async Task<IList<TEntity>> GetList(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, object>> orderBy)
+        public async Task<IList<TEntity>> GetList(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>> orderBy)
         {
-            return await Query(predicate, orderBy).ToListAsync();
+            return await Query(filter, orderBy).ToListAsync();
         }
 
         public async Task<TEntity> Insert(TEntity entity)
@@ -48,13 +48,13 @@ namespace InTouch.Data.Generic
             _dbSet.Remove(entity);
         }
 
-        private IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate = null, Expression<Func<TEntity, object>> orderBy = null)
+        private IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> filter = null, Expression<Func<TEntity, object>> orderBy = null)
         {
             IQueryable<TEntity> query = _dbSet;
 
-            if (predicate != null)
+            if (filter != null)
             {
-                query = query.Where(predicate);
+                query = query.Where(filter);
             }
 
             if (orderBy != null)

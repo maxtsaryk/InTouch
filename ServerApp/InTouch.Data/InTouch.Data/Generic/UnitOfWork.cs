@@ -22,12 +22,12 @@ namespace InTouch.Data.Generic
 
         protected void RegisterRepository<TEntity>(IRepository<TEntity> repository) where TEntity : IEntity
         {
-            this._repositories[typeof(TEntity)] = (object)repository;
+            _repositories[typeof(TEntity)] = repository;
         }
 
         protected virtual IRepository<TEntity> GetRepository<TEntity>() where TEntity : IEntity
         {
-            return (IRepository<TEntity>)this._repositories[typeof(TEntity)];
+            return (IRepository<TEntity>)_repositories[typeof(TEntity)];
         }
 
         public async Task SaveChanges()
