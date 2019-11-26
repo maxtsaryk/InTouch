@@ -12,6 +12,8 @@ namespace InTouch.Data.Utils
             services.AddDbContext<InTouchDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddTransient<IChatUnitOfWork, ChatUnitOfWork>();
+
             return services;
         }
     }
