@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using InTouch.Data.BaseEntities;
+using Aurochses.Data.EntityFrameworkCore;
 using InTouch.Data.Enums;
 
 namespace InTouch.Data.Entities
 {
-    public class Person : Entity
+    public class Person : Entity<int>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

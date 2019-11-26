@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using InTouch.Data.BaseEntities;
+using Aurochses.Data.EntityFrameworkCore;
 
 namespace InTouch.Data.Entities
 {
-    public class Chat : Entity
+    public class Chat : Entity<int>
     {
         public string Title { get; set; }
         public string Photo { get; set; }

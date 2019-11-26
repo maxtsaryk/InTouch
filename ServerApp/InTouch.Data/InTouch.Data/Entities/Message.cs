@@ -1,9 +1,9 @@
-﻿using InTouch.Data.BaseEntities;
+﻿using Aurochses.Data.EntityFrameworkCore;
 using InTouch.Data.Enums;
 
 namespace InTouch.Data.Entities
 {
-    public class Message : Entity
+    public class Message : Entity<int>
     {
         public int SenderId { get; set; }
         public int ChatId { get; set; }
