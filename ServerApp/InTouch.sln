@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.Business", "InTouch.Business\InTouch.Business\InTouch.Business.csproj", "{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.Business.Tests", "InTouch.Business\InTouch.Business.Tests\InTouch.Business.Tests.csproj", "{B45F147D-ED22-424C-9B48-36A4F4F23CD4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.WebApi", "InTouch.WebApi\InTouch.WebApi\InTouch.WebApi.csproj", "{46113F3C-D5FF-442D-A220-CBBF297BAE00}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.Data.Chat", "InTouch.Data\InTouch.Data.Chat\InTouch.Data.Chat.csproj", "{1845A011-3D23-40B1-BF70-8DCA674019C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InTouch.Business.Chat", "InTouch.Business\InTouch.Business.Chat\InTouch.Business.Chat.csproj", "{E55FF0AD-F72A-4865-9CEF-19D004A5D689}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9D03E5E-8CA5-4D0E-BBA5-162E054BF6CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B45F147D-ED22-424C-9B48-36A4F4F23CD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46113F3C-D5FF-442D-A220-CBBF297BAE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46113F3C-D5FF-442D-A220-CBBF297BAE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46113F3C-D5FF-442D-A220-CBBF297BAE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +23,10 @@ Global
 		{1845A011-3D23-40B1-BF70-8DCA674019C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1845A011-3D23-40B1-BF70-8DCA674019C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1845A011-3D23-40B1-BF70-8DCA674019C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55FF0AD-F72A-4865-9CEF-19D004A5D689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55FF0AD-F72A-4865-9CEF-19D004A5D689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55FF0AD-F72A-4865-9CEF-19D004A5D689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55FF0AD-F72A-4865-9CEF-19D004A5D689}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

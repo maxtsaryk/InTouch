@@ -1,17 +1,15 @@
-﻿using InTouch.Data;
-using InTouch.Data.Chat;
+﻿using InTouch.Data.Chat;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace InTouch.Business.Utils
+namespace InTouch.Business.Chat.Utils
 {
     public static class DependancyRegister
     {
         public static IServiceCollection AddBusinessComponents(
             this IServiceCollection services,
             IConfiguration configuration,
-            string connectionStringKey
-            )
+            string connectionStringKey)
         {
             services.AddDataAccessComponents(configuration, connectionStringKey);
 

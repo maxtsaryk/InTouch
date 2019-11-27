@@ -1,4 +1,4 @@
-using InTouch.Business.Utils;
+using InTouch.Business.Chat.Utils;
 using InTouch.WebApi.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

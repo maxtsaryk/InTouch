@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\InTouch.Business\InTouch.Business\InTouch.Business.csproj" />
+    <ProjectReference Include="..\..\InTouch.Business\InTouch.Business.Chat\InTouch.Business.Chat.csproj" />
   </ItemGroup>
 
 </Project>
