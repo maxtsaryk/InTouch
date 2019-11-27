@@ -3,7 +3,7 @@ using InTouch.Business.Chat.Utils;
 using InTouch.WebApi.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +23,12 @@ namespace InTouch.WebApi
         {
             services.AddBusinessComponents(Configuration, ConfigurationConstants.ChatDbConnectionKey);
             services.AddAutoMapper(typeof(Startup).Assembly);
+
+            services.AddControllersWithViews();
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "wwwroot/dist";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,15 +37,36 @@ namespace InTouch.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "../../../ClientApp";
+
+                if (env.IsDevelopment())
                 {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                    spa.UseAngularCliServer(npmScript: "start");
+                }
             });
         }
     }
