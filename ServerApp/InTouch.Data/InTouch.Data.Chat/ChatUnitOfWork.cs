@@ -1,8 +1,8 @@
 ﻿using Aurochses.Data;
 using Aurochses.Data.EntityFrameworkCore;
-using InTouch.Data.Entities;
+using InTouch.Data.Chat.Entities;
 
-namespace InTouch.Data
+namespace InTouch.Data.Chat
 {
     public class ChatUnitOfWork : UnitOfWork, IChatUnitOfWork
     {
@@ -22,10 +22,10 @@ namespace InTouch.Data
             return base.GetRepository<TEntity, TType>();
         }
 
-        public IRepository<Chat, int> ChatRepository => GetRepository<Chat, int>();
+        public IRepository<ChatEntity, int> ChatRepository => GetRepository<ChatEntity, int>();
 
-        public IRepository<Message, int> MessageRepository => GetRepository<Message, int>();
+        public IRepository<MessageEntity, int> MessageRepository => GetRepository<MessageEntity, int>();
 
-        public IRepository<Person, int> PersonRepository => GetRepository<Person, int>();
+        public IRepository<PersonEntity, int> PersonRepository => GetRepository<PersonEntity, int>();
     }
 }

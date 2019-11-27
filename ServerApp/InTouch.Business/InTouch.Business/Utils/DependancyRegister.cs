@@ -1,4 +1,5 @@
 ﻿using InTouch.Data;
+using InTouch.Data.Chat;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

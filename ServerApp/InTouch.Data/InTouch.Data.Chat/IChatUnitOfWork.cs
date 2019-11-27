@@ -1,12 +1,12 @@
 ﻿using Aurochses.Data;
-using InTouch.Data.Entities;
+using InTouch.Data.Chat.Entities;
 
-namespace InTouch.Data
+namespace InTouch.Data.Chat
 {
     public interface IChatUnitOfWork : IUnitOfWork
     {
-        IRepository<Chat, int> ChatRepository { get; }
-        IRepository<Message, int> MessageRepository { get; }
-        IRepository<Person, int> PersonRepository { get; }
+        IRepository<ChatEntity, int> ChatRepository { get; }
+        IRepository<MessageEntity, int> MessageRepository { get; }
+        IRepository<PersonEntity, int> PersonRepository { get; }
     }
 }

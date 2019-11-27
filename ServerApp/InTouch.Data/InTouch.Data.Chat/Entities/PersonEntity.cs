@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using Aurochses.Data.EntityFrameworkCore;
-using InTouch.Data.Enums;
+using InTouch.Data.Chat.Enums;
 
-namespace InTouch.Data.Entities
+namespace InTouch.Data.Chat.Entities
 {
-    public class Person : Entity<int>
+    public class PersonEntity : Entity<int>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Photo { get; set; }
         public PersonStatus Status { get; set; }
 
-        public IReadOnlyCollection<Message> Messages { get; set; }
-        public IReadOnlyCollection<PersonChat> PersonChats { get; set; }
+        public IReadOnlyCollection<MessageEntity> Messages { get; set; }
+        public IReadOnlyCollection<PersonChatEntity> PersonChats { get; set; }
     }
 }

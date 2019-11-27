@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace InTouch.Data
+namespace InTouch.Data.Chat
 {
     public static class DependancyRegister
     {

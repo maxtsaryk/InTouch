@@ -1,4 +1,4 @@
-﻿namespace InTouch.Data.Enums
+﻿namespace InTouch.Data.Chat.Enums
 {
     public enum PersonStatus
     {
