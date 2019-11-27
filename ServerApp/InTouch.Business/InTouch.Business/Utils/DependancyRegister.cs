@@ -6,9 +6,13 @@ namespace InTouch.Business.Utils
 {
     public static class DependancyRegister
     {
-        public static IServiceCollection AddBusinessComponents(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddBusinessComponents(
+            this IServiceCollection services,
+            IConfiguration configuration,
+            string connectionStringKey
+            )
         {
-            services.AddDataAccessComponents(configuration);
+            services.AddDataAccessComponents(configuration, connectionStringKey);
 
             return services;
         }

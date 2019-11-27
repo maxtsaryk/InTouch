@@ -1,4 +1,5 @@
 using InTouch.Business.Utils;
+using InTouch.WebApi.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +20,7 @@ namespace InTouch.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddBusinessComponents(Configuration);
+            services.AddBusinessComponents(Configuration, ConfigurationConstants.ChatDbConnectionKey);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

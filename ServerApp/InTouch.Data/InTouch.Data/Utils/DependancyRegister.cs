@@ -7,12 +7,16 @@ namespace InTouch.Data.Utils
 {
     public static class DependancyRegister
     {
-        public static IServiceCollection AddDataAccessComponents(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDataAccessComponents(
+            this IServiceCollection services,
+            IConfiguration configuration,
+            string connectionStringKey
+            )
         {
-            services.AddDbContext<InTouchDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient(typeof(IChatUnitOfWork), typeof(ChatUnitOfWork));
 
-            services.AddTransient<IChatUnitOfWork, ChatUnitOfWork>();
+            services.AddDbContext<InTouchDbContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString(connectionStringKey)));
 
             return services;
         }
