@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace InTouch.Data.Migrations.InTouchMigrations
+namespace InTouch.Data.Migrations
 {
     public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Conversations",
+                name: "Chats",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,7 +19,7 @@ namespace InTouch.Data.Migrations.InTouchMigrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Conversations", x => x.Id);
+                    table.PrimaryKey("PK_Chats", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -45,7 +45,7 @@ namespace InTouch.Data.Migrations.InTouchMigrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     SenderId = table.Column<int>(nullable: false),
-                    ConversationId = table.Column<int>(nullable: false),
+                    ChatId = table.Column<int>(nullable: false),
                     Content = table.Column<string>(nullable: true),
                     CreateTime = table.Column<long>(nullable: false),
                     IsModified = table.Column<bool>(nullable: false),
@@ -55,9 +55,9 @@ namespace InTouch.Data.Migrations.InTouchMigrations
                 {
                     table.PrimaryKey("PK_Messages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Messages_Conversations_ConversationId",
-                        column: x => x.ConversationId,
-                        principalTable: "Conversations",
+                        name: "FK_Messages_Chats_ChatId",
+                        column: x => x.ChatId,
+                        principalTable: "Chats",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -69,26 +69,26 @@ namespace InTouch.Data.Migrations.InTouchMigrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PersonConversations",
+                name: "PersonChats",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     IsTyping = table.Column<bool>(nullable: false),
                     PersonId = table.Column<int>(nullable: false),
-                    ConversationId = table.Column<int>(nullable: false)
+                    ChatId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PersonConversations", x => x.Id);
+                    table.PrimaryKey("PK_PersonChats", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PersonConversations_Conversations_ConversationId",
-                        column: x => x.ConversationId,
-                        principalTable: "Conversations",
+                        name: "FK_PersonChats_Chats_ChatId",
+                        column: x => x.ChatId,
+                        principalTable: "Chats",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PersonConversations_People_PersonId",
+                        name: "FK_PersonChats_People_PersonId",
                         column: x => x.PersonId,
                         principalTable: "People",
                         principalColumn: "Id",
@@ -96,9 +96,9 @@ namespace InTouch.Data.Migrations.InTouchMigrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Messages_ConversationId",
+                name: "IX_Messages_ChatId",
                 table: "Messages",
-                column: "ConversationId");
+                column: "ChatId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Messages_SenderId",
@@ -106,13 +106,13 @@ namespace InTouch.Data.Migrations.InTouchMigrations
                 column: "SenderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PersonConversations_ConversationId",
-                table: "PersonConversations",
-                column: "ConversationId");
+                name: "IX_PersonChats_ChatId",
+                table: "PersonChats",
+                column: "ChatId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PersonConversations_PersonId",
-                table: "PersonConversations",
+                name: "IX_PersonChats_PersonId",
+                table: "PersonChats",
                 column: "PersonId");
         }
 
@@ -122,10 +122,10 @@ namespace InTouch.Data.Migrations.InTouchMigrations
                 name: "Messages");
 
             migrationBuilder.DropTable(
-                name: "PersonConversations");
+                name: "PersonChats");
 
             migrationBuilder.DropTable(
-                name: "Conversations");
+                name: "Chats");
 
             migrationBuilder.DropTable(
                 name: "People");

@@ -1,9 +1,8 @@
-﻿using InTouch.Data.Contexts;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace InTouch.Data.Utils
+namespace InTouch.Data
 {
     public static class DependancyRegister
     {
@@ -15,7 +14,7 @@ namespace InTouch.Data.Utils
         {
             services.AddTransient(typeof(IChatUnitOfWork), typeof(ChatUnitOfWork));
 
-            services.AddDbContext<InTouchDbContext>(options =>
+            services.AddDbContext<ChatDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString(connectionStringKey)));
 
             return services;

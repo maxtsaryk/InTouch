@@ -1,4 +1,4 @@
-﻿using InTouch.Data.Utils;
+﻿using InTouch.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

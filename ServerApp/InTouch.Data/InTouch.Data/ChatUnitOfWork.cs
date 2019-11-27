@@ -1,13 +1,12 @@
 ﻿using Aurochses.Data;
 using Aurochses.Data.EntityFrameworkCore;
-using InTouch.Data.Contexts;
 using InTouch.Data.Entities;
 
 namespace InTouch.Data
 {
     public class ChatUnitOfWork : UnitOfWork, IChatUnitOfWork
     {
-        public ChatUnitOfWork(InTouchDbContext dbContext) : base(dbContext)
+        public ChatUnitOfWork(ChatDbContext dbContext) : base(dbContext)
         {
         }
 
