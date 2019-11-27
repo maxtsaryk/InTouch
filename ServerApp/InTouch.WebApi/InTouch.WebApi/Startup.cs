@@ -1,3 +1,4 @@
+using AutoMapper;
 using InTouch.Business.Chat.Utils;
 using InTouch.WebApi.Constants;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +22,7 @@ namespace InTouch.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBusinessComponents(Configuration, ConfigurationConstants.ChatDbConnectionKey);
+            services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

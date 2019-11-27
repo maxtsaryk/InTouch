@@ -9,8 +9,7 @@ namespace InTouch.Data.Chat
         public static IServiceCollection AddDataAccessComponents(
             this IServiceCollection services,
             IConfiguration configuration,
-            string connectionStringKey
-            )
+            string connectionStringKey)
         {
             services.AddTransient(typeof(IChatUnitOfWork), typeof(ChatUnitOfWork));
 
