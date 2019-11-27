@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\InTouch.Data\InTouch.Data\InTouch.Data.csproj" />
+    <ProjectReference Include="..\..\InTouch.Data\InTouch.Data.Chat\InTouch.Data.Chat.csproj" />
   </ItemGroup>
 
 </Project>
