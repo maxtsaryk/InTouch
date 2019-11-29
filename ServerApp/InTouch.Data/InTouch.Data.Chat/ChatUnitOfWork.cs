@@ -8,21 +8,12 @@ namespace InTouch.Data.Chat
     {
         public ChatUnitOfWork(ChatDbContext dbContext) : base(dbContext)
         {
+            RegisterRepository(new Repository<ChatEntity, int>(DbContext));
+            RegisterRepository(new Repository<MessageEntity, int>(DbContext));
+            RegisterRepository(new Repository<PersonEntity, int>(DbContext));
         }
 
-        protected override IRepository<TEntity, TType> GetRepository<TEntity, TType>()
-        {
-            var repository = base.GetRepository<TEntity, TType>();
-            if (repository != null)
-            {
-                return repository;
-            }
-
-            RegisterRepository(new Repository<TEntity, TType>(DbContext));
-            return base.GetRepository<TEntity, TType>();
-        }
-
-        public IRepository<ChatEntity, int> ChatRepository => GetRepository<ChatEntity, int>();
+       public IRepository<ChatEntity, int> ChatRepository => GetRepository<ChatEntity, int>();
 
         public IRepository<MessageEntity, int> MessageRepository => GetRepository<MessageEntity, int>();
 

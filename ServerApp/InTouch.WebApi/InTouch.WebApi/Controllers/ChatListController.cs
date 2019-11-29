@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using InTouch.Business.Chat.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InTouch.WebApi.Controllers
@@ -7,10 +10,26 @@ namespace InTouch.WebApi.Controllers
     [ApiController]
     public class ChatListController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult Get()
+        private readonly IChatService _chatService;
+
+        public ChatListController(IChatService chatService)
         {
-            return Ok(new List<string> { "Chat 1", "Chat 2" });
+            _chatService = chatService;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Get()
+        {
+            try
+            {
+                var result = await _chatService.GetListAsync();
+                return Ok(new List<string> { "Chat 1", "Chat 2" });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

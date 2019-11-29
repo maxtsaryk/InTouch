@@ -22,7 +22,7 @@ namespace InTouch.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBusinessComponents(Configuration, ConfigurationConstants.ChatDbConnectionKey);
-            services.AddAutoMapper(typeof(Startup).Assembly);
+            services.AddAutoMapper(typeof(ChatProfile).Assembly);
 
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration =>
