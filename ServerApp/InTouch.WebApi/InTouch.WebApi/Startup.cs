@@ -1,3 +1,4 @@
+using System;
 using AutoMapper;
 using InTouch.Business.Chat.Utils;
 using InTouch.Business.Chat.Utils.Profiles;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace InTouch.WebApi
 {
@@ -30,6 +32,22 @@ namespace InTouch.WebApi
             {
                 configuration.RootPath = "wwwroot/dist";
             });
+
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "1.0.0",
+                    Title = "In Touch Production",
+                    Description = "Chat API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Maksim Tsaryk",
+                        Email = "tsarykmk@gmail.com",
+                        Url = new Uri("https://github.com/maxtsaryk")
+                    }
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,13 +69,16 @@ namespace InTouch.WebApi
                 app.UseSpaStaticFiles();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "In Touch"));
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    "default",
+                    "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
