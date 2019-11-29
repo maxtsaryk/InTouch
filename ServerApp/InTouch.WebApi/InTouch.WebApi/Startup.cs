@@ -1,5 +1,6 @@
 using AutoMapper;
 using InTouch.Business.Chat.Utils;
+using InTouch.Business.Chat.Utils.Profiles;
 using InTouch.WebApi.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
