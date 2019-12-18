@@ -6,8 +6,14 @@ namespace InTouch.Business.Chat.Interfaces
 {
     public interface IChatService
     {
-        Task<IList<ChatDto>> GetListAsync();
+        Task<IList<ChatDto>> GetListAsync(int personId);
 
-        Task<ChatDto> GetAsync();
+        Task<ChatDto> GetAsync(int id);
+
+        Task<ChatDto> CreateAsync(int currentPersonId, ChatDto model);
+
+        ChatDto UpdateAsync(ChatDto model);
+
+        Task<int> DeleteAsync(int id);
     }
 }
