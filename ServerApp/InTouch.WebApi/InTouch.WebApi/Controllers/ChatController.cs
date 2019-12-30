@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InTouch.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/chat")]
     [ApiController]
     public class ChatController : ControllerBase
     {
@@ -16,14 +16,14 @@ namespace InTouch.WebApi.Controllers
             _chatService = chatService;
         }
 
-        [HttpGet]
+        [HttpGet("list/{personId}")]
         public async Task<ActionResult> GetListAsync(int personId)
         {
             var result = await _chatService.GetListAsync(personId);
             return Ok(result);
         }
 
-        [HttpGet("Id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult> GetAsync(int id)
         {
             var result = await _chatService.GetAsync(id);
@@ -44,7 +44,7 @@ namespace InTouch.WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteAsync(int id)
         {
             var result = await _chatService.DeleteAsync(id);
