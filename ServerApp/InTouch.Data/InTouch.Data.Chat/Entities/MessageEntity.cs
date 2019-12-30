@@ -13,6 +13,6 @@ namespace InTouch.Data.Chat.Entities
         public MessageStatus Status { get; set; }
 
         public PersonEntity Sender { get; set; }
-        public Data.Chat.Entities.ChatEntity Chat { get; set; }
+        public ChatEntity Chat { get; set; }
     }
 }

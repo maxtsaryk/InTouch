@@ -22,10 +22,10 @@ namespace InTouch.Business.Chat.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+
         public async Task<IList<ChatDto>> GetListAsync(int personId)
         {
-            var entities =
-                await _unitOfWork.ChatRepository.GetListAsync(x => x.PersonChats.All(y => y.PersonId == personId));
+            var entities = await _unitOfWork.ChatRepository.GetListAsync(x => x.PersonChats.Any(y => y.PersonId == personId));
 
             return _mapper.Map<IList<ChatDto>>(entities);
         }
@@ -42,13 +42,13 @@ namespace InTouch.Business.Chat.Services
             try
             {
 
-                var person = await _unitOfWork.PersonRepository.GetAsync(x => x.Id == currentPersonId);
-                var entityToCreate = _mapper.Map<ChatEntity>(model);
-                entityToCreate.Owner = person ?? throw new Exception("Current person doesn't exist");
-                //var createdEntity = await _unitOfWork.ChatRepository.InsertAsync(entityToCreate);
-                await _unitOfWork.PersonRepository.InsertAsync(new PersonEntity
-                    {FirstName = "sd", LastName = "saaaaa", Photo = "asdas", Status = PersonStatus.Offline});
-                await _unitOfWork.CommitAsync();
+                //var person = await _unitOfWork.PersonRepository.GetAsync(x => x.Id == currentPersonId);
+                //var entityToCreate = _mapper.Map<ChatEntity>(model);
+                //entityToCreate. = person ?? throw new Exception("Current person doesn't exist");
+                ////var createdEntity = await _unitOfWork.ChatRepository.InsertAsync(entityToCreate);
+                //await _unitOfWork.PersonRepository.InsertAsync(new PersonEntity
+                //    {FirstName = "sd", LastName = "saaaaa", Photo = "asdas", Status = PersonStatus.Offline});
+                //await _unitOfWork.CommitAsync();
                 return _mapper.Map<ChatDto>(new ChatEntity());
 
             }

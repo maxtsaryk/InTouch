@@ -7,9 +7,7 @@ namespace InTouch.Data.Chat.Entities
     {
         public string Title { get; set; }
         public string Photo { get; set; }
-        public int OwnerId { get; set; }
 
-        public PersonEntity Owner { get; set; }
         public IReadOnlyCollection<PersonChatEntity> PersonChats { get; set; }
     }
 }
