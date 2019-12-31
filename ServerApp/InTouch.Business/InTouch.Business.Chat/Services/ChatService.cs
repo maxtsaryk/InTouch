@@ -43,10 +43,10 @@ namespace InTouch.Business.Chat.Services
 
                 //var person = await _unitOfWork.PersonRepository.GetAsync(x => x.Id == currentPersonId);
                 //var entityToCreate = _mapper.Map<ChatEntity>(model);
-                //entityToCreate. = person ?? throw new Exception("Current person doesn't exist");
+                //entityToCreate.PersonChats = person ?? throw new Exception("Current person doesn't exist");
                 ////var createdEntity = await _unitOfWork.ChatRepository.InsertAsync(entityToCreate);
                 //await _unitOfWork.PersonRepository.InsertAsync(new PersonEntity
-                //    {FirstName = "sd", LastName = "saaaaa", Photo = "asdas", Status = PersonStatus.Offline});
+                //{ FirstName = "sd", LastName = "saaaaa", Photo = "asdas", Status = PersonStatus.Offline });
                 //await _unitOfWork.CommitAsync();
                 return _mapper.Map<ChatDto>(new ChatEntity());
 

@@ -15,6 +15,7 @@ namespace InTouch.Business.Chat.Utils
         {
             services.AddDataAccessComponents(configuration, connectionStringKey);
 
+            services.AddTransient<IPersonService, PersonService>();
             services.AddTransient<IChatService, ChatService>();
 
             return services;
