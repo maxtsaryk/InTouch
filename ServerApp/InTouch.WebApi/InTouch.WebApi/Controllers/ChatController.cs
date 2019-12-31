@@ -20,6 +20,7 @@ namespace InTouch.WebApi.Controllers
         public async Task<ActionResult> GetListAsync(int personId)
         {
             var result = await _chatService.GetListAsync(personId);
+
             return Ok(result);
         }
 
@@ -27,6 +28,7 @@ namespace InTouch.WebApi.Controllers
         public async Task<ActionResult> GetAsync(int id)
         {
             var result = await _chatService.GetAsync(id);
+
             return Ok(result);
         }
 
@@ -34,6 +36,7 @@ namespace InTouch.WebApi.Controllers
         public async Task<ActionResult> CreateAsync(int personId, ChatDto model)
         {
             var result = await _chatService.CreateAsync(personId, model);
+
             return Ok(result);
         }
 
@@ -41,6 +44,7 @@ namespace InTouch.WebApi.Controllers
         public ActionResult UpdateAsync(ChatDto model)
         {
             var result = _chatService.UpdateAsync(model);
+
             return Ok(result);
         }
 
@@ -48,6 +52,7 @@ namespace InTouch.WebApi.Controllers
         public async Task<ActionResult> DeleteAsync(int id)
         {
             var result = await _chatService.DeleteAsync(id);
+
             return Ok(result);
         }
     }

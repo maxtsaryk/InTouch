@@ -8,7 +8,6 @@ using InTouch.Business.Chat.Dto;
 using InTouch.Business.Chat.Interfaces;
 using InTouch.Data.Chat;
 using InTouch.Data.Chat.Entities;
-using InTouch.Data.Chat.Enums;
 
 namespace InTouch.Business.Chat.Services
 {
