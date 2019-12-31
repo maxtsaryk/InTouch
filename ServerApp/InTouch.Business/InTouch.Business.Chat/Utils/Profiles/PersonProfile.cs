@@ -8,7 +8,8 @@ namespace InTouch.Business.Chat.Utils.Profiles
     {
         public PersonProfile()
         {
-            CreateMap<PersonEntity, PersonDto>().ReverseMap();
+            CreateMap<PersonEntity, PersonDto>();
+            CreateMap<PersonDto, PersonEntity>();
         }
     }
 }

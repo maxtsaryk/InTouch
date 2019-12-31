@@ -1,7 +1,7 @@
 using System;
 using AutoMapper;
+using InTouch.Business.Chat.Services;
 using InTouch.Business.Chat.Utils;
-using InTouch.Business.Chat.Utils.Profiles;
 using InTouch.WebApi.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +25,7 @@ namespace InTouch.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBusinessComponents(Configuration, ConfigurationConstants.ChatDbConnectionKey);
-            services.AddAutoMapper(typeof(ChatProfile).Assembly);
+            services.AddAutoMapper(typeof(Startup), typeof(ChatService));
 
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration =>
