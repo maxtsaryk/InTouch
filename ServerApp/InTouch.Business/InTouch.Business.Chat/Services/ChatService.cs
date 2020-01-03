@@ -57,13 +57,13 @@ namespace InTouch.Business.Chat.Services
             }
         }
 
-        public ChatDto UpdateAsync(ChatDto model)
+        public async Task<ChatDto> UpdateAsync(ChatDto model)
         {
             try
             {
                 var entityToUpdate = _mapper.Map<ChatEntity>(model);
                 var updatedEntity = _unitOfWork.ChatRepository.Update(entityToUpdate);
-                _unitOfWork.Commit();
+                await _unitOfWork.CommitAsync();
 
                 return _mapper.Map<ChatDto>(updatedEntity);
             }

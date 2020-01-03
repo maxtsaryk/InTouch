@@ -43,10 +43,10 @@ namespace InTouch.Business.Chat.Services
             return _mapper.Map<PersonDto>(entity);
         }
 
-        public PersonDto UpdateAsync(PersonDto model)
+        public async Task<PersonDto> UpdateAsync(PersonDto model)
         {
             var entity = _unitOfWork.PersonRepository.Update(_mapper.Map<PersonEntity>(model));
-            _unitOfWork.Commit();
+            await _unitOfWork.CommitAsync();
 
             return _mapper.Map<PersonDto>(entity);
         }

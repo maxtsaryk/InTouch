@@ -12,7 +12,7 @@ namespace InTouch.Business.Chat.Interfaces
 
         Task<PersonDto> CreateAsync(PersonDto model);
 
-        PersonDto UpdateAsync(PersonDto model);
+        Task<PersonDto> UpdateAsync(PersonDto model);
 
         Task<int> DeleteAsync(int id);
     }
