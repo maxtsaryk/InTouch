@@ -33,7 +33,7 @@ namespace InTouch.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateAsync(PersonDto model)
+        public async Task<ActionResult> CreateAsync([FromBody] PersonDto model)
         {
             var result = await _personService.CreateAsync(model);
 
@@ -41,9 +41,9 @@ namespace InTouch.WebApi.Controllers
         }
 
         [HttpPut]
-        public ActionResult UpdateAsync(PersonDto model)
+        public async Task<ActionResult> UpdateAsync([FromBody] PersonDto model)
         {
-            var result = _personService.UpdateAsync(model);
+            var result = await _personService.UpdateAsync(model);
 
             return Ok(result);
         }

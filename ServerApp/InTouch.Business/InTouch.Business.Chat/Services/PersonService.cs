@@ -37,18 +37,33 @@ namespace InTouch.Business.Chat.Services
 
         public async Task<PersonDto> CreateAsync(PersonDto model)
         {
-            var entity = await _unitOfWork.PersonRepository.InsertAsync(_mapper.Map<PersonEntity>(model));
-            _unitOfWork.Commit();
+            try
+            {
+                var entity = await _unitOfWork.PersonRepository.InsertAsync(_mapper.Map<PersonEntity>(model));
+                await _unitOfWork.CommitAsync();
 
-            return _mapper.Map<PersonDto>(entity);
+                return _mapper.Map<PersonDto>(entity);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public async Task<PersonDto> UpdateAsync(PersonDto model)
         {
-            var entity = _unitOfWork.PersonRepository.Update(_mapper.Map<PersonEntity>(model));
-            await _unitOfWork.CommitAsync();
+            try
+            {
+                var entity = _unitOfWork.PersonRepository.Update(_mapper.Map<PersonEntity>(model));
+                await _unitOfWork.CommitAsync();
 
-            return _mapper.Map<PersonDto>(entity);
+                return _mapper.Map<PersonDto>(entity);
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public async Task<int> DeleteAsync(int id)
