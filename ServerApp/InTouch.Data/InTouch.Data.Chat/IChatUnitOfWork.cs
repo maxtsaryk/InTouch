@@ -8,5 +8,6 @@ namespace InTouch.Data.Chat
         IRepository<ChatEntity, int> ChatRepository { get; }
         IRepository<MessageEntity, int> MessageRepository { get; }
         IRepository<PersonEntity, int> PersonRepository { get; }
+        IRepository<PersonChatEntity, int> PersonChatRepository { get; }
     }
 }

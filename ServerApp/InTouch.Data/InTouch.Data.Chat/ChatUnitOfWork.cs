@@ -11,6 +11,7 @@ namespace InTouch.Data.Chat
             RegisterRepository(new Repository<ChatEntity, int>(DbContext));
             RegisterRepository(new Repository<MessageEntity, int>(DbContext));
             RegisterRepository(new Repository<PersonEntity, int>(DbContext));
+            RegisterRepository(new Repository<PersonChatEntity, int>(DbContext));
         }
 
         public IRepository<ChatEntity, int> ChatRepository => GetRepository<ChatEntity, int>();
@@ -18,5 +19,7 @@ namespace InTouch.Data.Chat
         public IRepository<MessageEntity, int> MessageRepository => GetRepository<MessageEntity, int>();
 
         public IRepository<PersonEntity, int> PersonRepository => GetRepository<PersonEntity, int>();
+
+        public IRepository<PersonChatEntity, int> PersonChatRepository => GetRepository<PersonChatEntity, int>();
     }
 }

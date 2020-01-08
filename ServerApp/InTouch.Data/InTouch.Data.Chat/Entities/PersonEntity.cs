@@ -11,7 +11,6 @@ namespace InTouch.Data.Chat.Entities
         public string Photo { get; set; }
         public PersonStatus Status { get; set; }
 
-        public IReadOnlyCollection<MessageEntity> Messages { get; set; }
         public IReadOnlyCollection<PersonChatEntity> PersonChats { get; set; }
     }
 }

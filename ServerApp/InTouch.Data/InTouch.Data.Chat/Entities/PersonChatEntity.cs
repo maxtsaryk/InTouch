@@ -1,4 +1,5 @@
-﻿using Aurochses.Data.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Aurochses.Data.EntityFrameworkCore;
 
 namespace InTouch.Data.Chat.Entities
 {
@@ -11,5 +12,6 @@ namespace InTouch.Data.Chat.Entities
 
         public PersonEntity Person { get; set; }
         public ChatEntity Chat { get; set; }
+        public IReadOnlyCollection<MessageEntity> Messages { get; set; }
     }
 }
