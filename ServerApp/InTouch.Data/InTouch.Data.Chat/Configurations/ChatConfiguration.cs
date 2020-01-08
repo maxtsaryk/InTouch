@@ -8,7 +8,7 @@ namespace InTouch.Data.Chat.Configurations
     {
         public void Configure(EntityTypeBuilder<ChatEntity> builder)
         {
-            builder.Property(e => e.Title).IsRequired();
+            builder.Property(x => x.Title).IsRequired();
         }
     }
 }

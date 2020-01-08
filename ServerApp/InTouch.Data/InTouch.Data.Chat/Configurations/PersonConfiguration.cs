@@ -9,9 +9,9 @@ namespace InTouch.Data.Chat.Configurations
     {
         public void Configure(EntityTypeBuilder<PersonEntity> builder)
         {
-            builder.Property(e => e.FirstName).IsRequired();
-            builder.Property(e => e.LastName).IsRequired();
-            builder.Property(e => e.Status).HasDefaultValue(PersonStatus.Offline);
+            builder.Property(x => x.FirstName).IsRequired();
+            builder.Property(x => x.LastName).IsRequired();
+            builder.Property(x => x.Status).HasDefaultValue(PersonStatus.Offline);
         }
     }
 }

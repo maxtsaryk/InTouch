@@ -9,10 +9,10 @@ namespace InTouch.Data.Chat.Configurations
     {
         public void Configure(EntityTypeBuilder<MessageEntity> builder)
         {
-            builder.Property(e => e.Content).IsRequired();
-            builder.Property(e => e.CreateTime).IsRequired();
-            builder.Property(e => e.UpdateTime).IsRequired();
-            builder.Property(e => e.Status).HasDefaultValue(MessageStatus.NotSent);
+            builder.Property(x => x.Content).IsRequired();
+            builder.Property(x => x.CreateTime).IsRequired();
+            builder.Property(x => x.UpdateTime).IsRequired();
+            builder.Property(x => x.Status).HasDefaultValue(MessageStatus.NotSent);
         }
     }
 }
