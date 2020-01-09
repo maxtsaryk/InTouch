@@ -9,15 +9,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace InTouch.Data.Chat.Migrations
 {
     [DbContext(typeof(ChatDbContext))]
-    [Migration("20191127074848_Initial")]
-    partial class Initial
+    [Migration("20200109073655_AddEntities")]
+    partial class AddEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("InTouch.Data.Chat.Entities.ChatEntity", b =>
@@ -27,13 +27,11 @@ namespace InTouch.Data.Chat.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Photo")
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -48,10 +46,8 @@ namespace InTouch.Data.Chat.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("ChatId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<long>("CreateTime")
@@ -60,17 +56,20 @@ namespace InTouch.Data.Chat.Migrations
                     b.Property<bool>("IsModified")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("SenderId")
+                    b.Property<int>("PersonChatId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Status")
-                        .HasColumnType("integer");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(1);
+
+                    b.Property<long>("UpdateTime")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ChatId");
-
-                    b.HasIndex("SenderId");
+                    b.HasIndex("PersonChatId");
 
                     b.ToTable("Messages");
                 });
@@ -84,6 +83,9 @@ namespace InTouch.Data.Chat.Migrations
 
                     b.Property<int>("ChatId")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("IsOwner")
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("IsTyping")
                         .HasColumnType("boolean");
@@ -108,16 +110,20 @@ namespace InTouch.Data.Chat.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")
                         .HasColumnType("text");
 
                     b.Property<int>("Status")
-                        .HasColumnType("integer");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(1);
 
                     b.HasKey("Id");
 
@@ -126,15 +132,9 @@ namespace InTouch.Data.Chat.Migrations
 
             modelBuilder.Entity("InTouch.Data.Chat.Entities.MessageEntity", b =>
                 {
-                    b.HasOne("InTouch.Data.Chat.Entities.ChatEntity", "Chat")
-                        .WithMany()
-                        .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("InTouch.Data.Chat.Entities.PersonEntity", "Sender")
+                    b.HasOne("InTouch.Data.Chat.Entities.PersonChatEntity", "PersonChat")
                         .WithMany("Messages")
-                        .HasForeignKey("SenderId")
+                        .HasForeignKey("PersonChatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

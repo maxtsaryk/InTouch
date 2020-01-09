@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191127074848_Initial.cs" />
+    <Compile Remove="Migrations\20191127074848_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20191202061042_AddFKForOwnerInChat.cs" />
+    <Compile Remove="Migrations\20191202061042_AddFKForOwnerInChat.Designer.cs" />
+    <Compile Remove="Migrations\20191230142150_UpdateChatEntity.cs" />
+    <Compile Remove="Migrations\20191230142150_UpdateChatEntity.Designer.cs" />
+    <Compile Remove="Migrations\20200108065601_UpdateRelationships.cs" />
+    <Compile Remove="Migrations\20200108065601_UpdateRelationships.Designer.cs" />
+    <Compile Remove="Migrations\20200108095508_AddHiLoStrategy.cs" />
+    <Compile Remove="Migrations\20200108095508_AddHiLoStrategy.Designer.cs" />
+    <Compile Remove="Migrations\20200108095929_Initial.cs" />
+    <Compile Remove="Migrations\20200108095929_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Aurochses.Data" Version="2.2.0" />
     <PackageReference Include="Aurochses.Data.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.1" />

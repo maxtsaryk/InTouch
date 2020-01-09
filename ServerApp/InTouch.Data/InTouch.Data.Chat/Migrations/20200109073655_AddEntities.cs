@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace InTouch.Data.Chat.Migrations
 {
-    public partial class Initial : Migration
+    public partial class AddEntities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,8 @@ namespace InTouch.Data.Chat.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(nullable: true),
-                    Photo = table.Column<string>(nullable: true),
-                    OwnerId = table.Column<int>(nullable: false)
+                    Title = table.Column<string>(nullable: false),
+                    Photo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,44 +27,14 @@ namespace InTouch.Data.Chat.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
                     Photo = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false, defaultValue: 1)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_People", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Messages",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    SenderId = table.Column<int>(nullable: false),
-                    ChatId = table.Column<int>(nullable: false),
-                    Content = table.Column<string>(nullable: true),
-                    CreateTime = table.Column<long>(nullable: false),
-                    IsModified = table.Column<bool>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Messages", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Messages_Chats_ChatId",
-                        column: x => x.ChatId,
-                        principalTable: "Chats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Messages_People_SenderId",
-                        column: x => x.SenderId,
-                        principalTable: "People",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,9 +43,10 @@ namespace InTouch.Data.Chat.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IsTyping = table.Column<bool>(nullable: false),
                     PersonId = table.Column<int>(nullable: false),
-                    ChatId = table.Column<int>(nullable: false)
+                    ChatId = table.Column<int>(nullable: false),
+                    IsTyping = table.Column<bool>(nullable: false),
+                    IsOwner = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,15 +65,34 @@ namespace InTouch.Data.Chat.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Messages_ChatId",
-                table: "Messages",
-                column: "ChatId");
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    PersonChatId = table.Column<int>(nullable: false),
+                    Content = table.Column<string>(nullable: false),
+                    CreateTime = table.Column<long>(nullable: false),
+                    UpdateTime = table.Column<long>(nullable: false),
+                    IsModified = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false, defaultValue: 1)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Messages_PersonChats_PersonChatId",
+                        column: x => x.PersonChatId,
+                        principalTable: "PersonChats",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Messages_SenderId",
+                name: "IX_Messages_PersonChatId",
                 table: "Messages",
-                column: "SenderId");
+                column: "PersonChatId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PersonChats_ChatId",

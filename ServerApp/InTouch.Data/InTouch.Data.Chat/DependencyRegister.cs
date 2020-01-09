@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace InTouch.Data.Chat
 {
-    public static class DependancyRegister
+    public static class DependencyRegister
     {
         public static IServiceCollection AddDataAccessComponents(
             this IServiceCollection services,

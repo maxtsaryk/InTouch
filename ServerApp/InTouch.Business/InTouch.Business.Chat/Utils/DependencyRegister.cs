@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace InTouch.Business.Chat.Utils
 {
-    public static class DependancyRegister
+    public static class DependencyRegister
     {
         public static IServiceCollection AddBusinessComponents(
             this IServiceCollection services,
